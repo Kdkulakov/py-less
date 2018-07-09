@@ -20,12 +20,19 @@ print("*** В программу Медицинская анкета***")
 print("\nДавайте проверим ваше состояние.")
 name = input("Введите ваши анкетные данные \nВаше имя: ")
 lastname = input("Ваша фамилия: ")
-age = int(input("Ваше возраст (не стесняйтесь, я ни кому не скажу): "))
-weight = int(input("Ваше вес (ну +-): "))
+age = input("Ваше возраст (не стесняйтесь, я ни кому не скажу): ")
+weight = input("Ваше вес (ну +-): ")
 
-if age < 30 and weight < 50 > 120:
-    print(name + " " + lastname + ", " + " " + str(age) + " год," + " вес " + str(weight) + " - следует заняться собой")
-    if age > 30 and weight < 50 > 120:
-        print(name + " " + lastname + ", " + " " + str(age) + " год," + " вес " + str(weight) )
+list_end = [' - хорошее состояние', ' - следует заняться собой', ' - следует обратится к врачу!']
+
+if name and lastname and age and weight:
+    if int(age) < 30 and int(weight) > 50 or int(weight) < 120:
+        print(name + " " + lastname + ", " + " " + str(age) + " год," + " вес " + str(weight) + list_end[0])
+    elif int(weight) < 50 or int(weight) > 120:
+        print(name + " " + lastname + ", " + " " + str(age) + " год," + " вес " + str(weight) + list_end[1])
+
     else:
-        print(name + " " + lastname + ", " + " " + str(age) + " год," + " вес " + str(weight) + " - хорошее состояние")
+        print(name + " " + lastname + ", " + " " + str(age) + " год," + " вес " + str(weight) + list_end[2])
+
+else:
+    print('Нужно заполнить все поля!')
